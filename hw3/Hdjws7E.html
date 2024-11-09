@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    img{
+        height: 100px;
+        width: 100px;
+        object-fit: cover;
+    }
+</style>
+<body>
+<script>
+
+    let products = [
+        {
+            title: 'milk',
+            price: 22,
+            image: 'https://www.mcqueensdairies.co.uk/wp-content/uploads/2019/02/Mcqueens_1litre_whole_organic-300x300-3.jpg'
+        },{
+            title: 'juice',
+            price: 27,
+            image: 'https://images-na.ssl-images-amazon.com/images/I/61jL2GCuKLL._SX679_PIbundle-24,TopRight,0,0_AA679SH20_.jpg'
+        }, {
+            title: 'tomato',
+            price: 47,
+            image: 'https://dictionary.cambridge.org/ru/images/thumb/tomato_noun_001_17860.jpg?version=5.0.74'
+        }, {
+            title: 'tea',
+            price: 15,
+            image: 'https://t-coffee.com.ua/image/cache/catalog/image/data/1496486100593290d49e28e9.74356416.webp'
+        },
+    ];
+    for (let i = 0; i < products.length; i++) {
+        let product = products[i];
+        document.write(`<div class="product-card">
+        <h3 class="product-title"> ${product.title} Price - ${product.price}</h3>
+        <img src= "${product.image}" alt="" class="product-image">
+</div>`)
+
+    }
+</script>
+</body>
+</html>
