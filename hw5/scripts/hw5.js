@@ -66,9 +66,25 @@ arrToList([1, 2, 4, "hgfdew,", true, 0]);
 // #bovDJDTIjt
 // - створити функцію яка приймає масив об'єктів з наступними полями id,name,age , та виводить їх в документ. Для кожного об'єкту окремий блок.
 
+const objArrToList = (array)=>{
+    for (const arrayElement of array) {
+        document.write(`<div>`);
+        for (const arrayElementKey in arrayElement) {
+            document.write(`<p>${arrayElementKey} ${arrayElement[arrayElementKey]}</p>`)
+        }
+        document.write(`</div>`);
 
+    }
+}
 
-
+users = [
+    { id: 1, name: 'Іван', age: 25 },
+    { id: 2, name: 'Марія', age: 30 },
+    { id: 3, name: 'Петро', age: 22 },
+    { id: 4, name: 'Олена', age: 28 },
+    { id: 5, name: 'Дмитро', age: 35 }
+];
+objArrToList(users);
 
 
 
