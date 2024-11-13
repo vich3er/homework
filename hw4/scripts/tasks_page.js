@@ -39,3 +39,24 @@ makeNewList('text', 5);
 
  }
  makeListFromArr([1333, 9, true, false, !!0, !!9, "xserdtghjikjhuhhuhuh"]);
+
+users = [
+    { id: 1, name: 'Іван', age: 25 },
+    { id: 2, name: 'Марія', age: 30 },
+    { id: 3, name: 'Петро', age: 22 },
+    { id: 4, name: 'Олена', age: 28 },
+    { id: 5, name: 'Дмитро', age: 35 }
+];
+
+
+//створити функцію яка приймає масив об'єктів з наступними полями id,name,age , та виводить їх в документ. Для кожного об'єкту окремий блок.
+function blockObj (arr){
+    for (const arrElement of arr) {
+        document.write(`<div>`);
+        for (const arrElementKey in arrElement) {
+            document.write(`<p>${arrElementKey} ${arrElement[arrElementKey]} </p>`)
+        }
+        document.write(`</div>`);
+    }
+}
+blockObj(users);
