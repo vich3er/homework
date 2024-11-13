@@ -72,6 +72,8 @@ const objArrToList = (array)=>{
         for (const arrayElementKey in arrayElement) {
             document.write(`<p>${arrayElementKey} ${arrayElement[arrayElementKey]}</p>`)
         }
+        // document.write(`<p>${ arrayElement.name} </p>`)
+
         document.write(`</div>`);
 
     }
@@ -85,14 +87,6 @@ users = [
     { id: 5, name: 'Дмитро', age: 35 }
 ];
 objArrToList(users);
-
-
-
-
-
-
-
-
 
 //     #pghbnSB
 // - створити функцію яка повертає найменьше число з масиву
