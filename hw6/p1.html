@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  // #dFeorS3m7u
+  // - Знайти та вивести довижину настипних стрінгових значень
+  // 'hello world', 'lorem ipsum', 'javascript is cool'
+  console.log('hello world'.length);
+  console.log('lorem ipusum'.length);
+  console.log("javascript is cool".length);
+
+  // #8lld9HMxXWB
+  // - Перевести до великого регістру наступні стрінгові значення
+  // 'hello world', 'lorem ipsum', 'javascript is cool'
+  console.log('hello world'.toUpperCase());
+  console.log('lorem ipsum'.toUpperCase());
+  console.log('javascript is cool'.toUpperCase());
+
+  // #ClDsAm7xba7
+  // - Перевести до нижнього регістру настипні стрінгові значення
+  // 'HELLO WORLD', 'LOREM IPSUM', 'JAVASCRIPT IS COOL'
+  console.log('HELLO WORLD'.toLowerCase());
+  console.log('LOREM IPSUM'.toLowerCase());
+  console.log('JAVASCRIPT IS COOL'.toLowerCase());
+  // #0b89BkYZwu
+  // - Є "брудна" стрінга let str = ' dirty string   ' . Почистити її від зайвих пробілів.
+  //
+  let str = ' dirty string   '
+  let newStr = str.trim();// чистить стрінгу від пробілів по бокам
+
+  //         #bfoJuse4ZzP
+  // - Напишіть функцію stringToarray(str), яка перетворює рядок на масив слів.
+  // let arr = stringToarray(str); ['Ревуть', 'воли', 'як', 'ясла', 'повні']
+  let str = 'Ревуть воли як ясла повні';
+  function stringToArray (array){
+ return array.split(' ');
+  }
+let arr = stringToArray(str);
+  console.log(arr);
+
+
+  // #Rbr5kEQ
+  // - є масив чисел [10,8,-7,55,987,-1011,0,1050,0] . за допомоги map  перетворити всі об'єкти в масиві на стрінгові.
+let arr2 = [10,8,-7,55,987,-1011,0,1050,0];
+let arr3 = arr2.map((value)=>{
+ return  value.toString();
+})
+console.log(arr3);
+console.log(arr2);
+  // #5hqyKTfmc
+  // - створити функцію sortNums(array,direction), яка прймає масив чисел, та сортує його від більшого до меньшого, або навпаки в залежності від значення аргументу direction.
+  //         let nums = [11,21,3];
+  // sortNums(nums,'ascending') // [3,11,21]
+  // sortNums(nums,'descending') // [21,11,3]
+  let nums = [11,21,3];
+  function  sortNums(array,direction){
+    if (direction==='ascending' ){
+   return  array.sort((a, b)=>a-b )
+    }
+      else if( direction==='descending'){
+      return   array.sort((a, b)=>b-a)
+    }
+      else{
+      return "неправильний аргумент"
+    }
+  }
+
+  let asc = sortNums(nums, 'ascending');
+  console.log(asc==nums);
+  console.log(asc===nums);
+  console.log(asc);
+  console.log(sortNums(nums, 'descending'));
+  console.log(asc);
+
+</script>
+</body>
+</html>
