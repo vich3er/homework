@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function User(id, name, surname, phone) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.phone = phone;
+    }
+
+    const user = new User(1, 'kokos', 'asdqwe', '+964657983');
+    console.log(user);
+
+    let users = [
+        new User(1, 'kokos', 'asdqwe', '+964657983'),
+        new User(2, 'kokos', 'asdqwe', '+964657983'),
+        new User(3, 'kokos', 'asdqwe', '+964657983'),
+        new User(4, 'kokos', 'asdqwe', '+964657983'),
+        new User(5, 'kokos', 'asdqwe', '+964657983'),
+        new User(6, 'kokos', 'asdqwe', '+964657983'),
+        new User(7, 'kokos', 'asdqwe', '+964657983'),
+        new User(8, 'kokos', 'asdqwe', '+964657983'),
+        new User(9, 'kokos', 'asdqwe', '+964657983'),
+        new User(10, 'kokos', 'asdqwe', '+964657983'),
+        new User(321, 'asdasd', 'qweqwe', '+.65464654654')
+    ];
+
+let filtered = users.filter(value => !(value.id%2));
+    console.log(filtered);
+
+    let sorted = users.sort((a, b)=>{
+        return b.id-a.id;
+        }
+    )
+    console.log(sorted);
+</script>
+</body>
+</html>

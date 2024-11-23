@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+  div {
+    background-color: gold;
+    color: hotpink;
+    font-size: 22px;
+    height: 200px;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 5px;
+  }
+</style>
+<body>
+<script>
+  // #8Nmt60ZT
+  // - створити блок,
+  //         - додати йому класи wrap, collapse, alpha, beta
+  // - додати стилі(довільні значення) : колір фону, колір тексту, розмір тексту
+  // - додати цей блок в body.
+  // - клонувати його повністю, та додати клон в body.
+
+let myDiv = document.createElement('div');
+document.body.appendChild(myDiv);
+myDiv.innerText = "He was a short, nerdy guy with glasses.";
+myDiv.classList.add('wrap', 'collapse', 'beta', 'alpha');
+
+ //let newDiv = document.createElement('div');
+ //newDiv = {...myDiv};
+  //newDiv = Object.assign({}, newDiv);
+  // newDiv = JSON.parse(myDiv).JSON.stringify(myDiv);
+  // console.log(myDiv);
+  // newDiv.innerText = myDiv.innerText;
+  // newDiv.classList =myDiv.classList;
+
+ let newDiv = myDiv.cloneNode(myDiv);
+ document.body.appendChild(newDiv);
+
+
+
+</script>
+</body>
+</html>
