@@ -731,7 +731,12 @@ next.onclick = function (){
 prev.onclick = function (){
     ul.innerText = "";
     nextOrPr-=10;
-    if (nextOrPr <=10) makeTen(0);
+    console.log(nextOrPr);
+    if (nextOrPr <=10)
+    {
+        makeTen(0);
+        nextOrPr = 0;
+    }
     else
     makeTen(nextOrPr);
 }
