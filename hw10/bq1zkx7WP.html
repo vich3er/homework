@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <div>
+        <span id="price"></span> грн
+    </div>
+</head>
+<body>
+<script>
+    // *** (подібне було вище, але...будьте уважні в другій частині) створити сторінку з довільним блоком, в середині якого є значення "100грн"
+    // при перезавантаженні сторінки до значаення додається по 10грн, але !!!
+    //     зміна ціни відбувається тільки на перезавантаження, які відбулись пізніше ніж 10 секунд після попереднього.
+    //     При перезавантаженні, яке відбулось раніше ніж минуло 10 секунд - нічого не відбувається
+ let enter = JSON.parse(localStorage.getItem("enter")) ||  new Date().getTime();
+ let price = JSON.parse(localStorage.getItem("price")) || 100;
+ span = document.getElementById("price");
+ span.innerText = JSON.parse(localStorage.getItem("price")) || 100;
+ document.onreadystatechange = function (){
+     if (document.readyState === "complete"){
+         let reload = new Date().getTime();
+         if( reload - enter >=10*1000)
+             {
+                 console.log(price);
+                 price+=10;
+                 span.innerText = price;
+                 localStorage.setItem("price", price);
+             }
+         localStorage.setItem("enter", reload);
+
+
+         }
+
+ }
+</script>
+</body>
+</html>

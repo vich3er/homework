@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+
+<body>
+
+<form action="#" id="f1">
+    <input type="text" name="name" placeholder="name"  required>
+    <input type="text" name = "surname" placeholder="surname"  required>
+    <input type="number" name="age" min="0" required>
+    <button  >submit</button>
+</form>
+<script>
+///#ymAmN2xJ
+//Стоврити форму з трьома полями для name,sruname,age та кнопкою. При натисканні на кнопку зчитати данні з полів,
+    // та вивести об'єкт в документ. Іншими словами : заповниои форму, натиснули кнопку, під формою з'явився блок з вашим об'єктом-->
+
+
+const form = document.forms.f1;
+p = document.createElement("p");
+document.body.appendChild(p);
+console.log(form);
+form.onsubmit = function (e) {
+    e.preventDefault();
+    let obj = {
+        name: this.name.value,
+         age: this.age.value,
+        surname: this.surname.value
+    }
+    console.log(obj);
+
+    p.innerText = `${obj.surname} ${obj.name} ${obj.age}`;
+
+
+
+}
+
+
+</script>
+</body>
+</html>

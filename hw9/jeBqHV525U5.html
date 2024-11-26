@@ -44,10 +44,11 @@ for(value of coursesAndDurationArray){
     let div = document.createElement('div');
     document.body.appendChild(div);
     for (key in value){
-        let p = document.createElement('p');
+        const p = document.createElement('p');
         p.innerText = key + " " + value[key];
         console.log(p.innerText);
         div.appendChild(p);
+
     }
 }
 

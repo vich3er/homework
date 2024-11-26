@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>//???????
+    // #j693ca8
+    // - створити інпут який приймає вік людини та кнопку яка підтверджує дію.При натисканні на кнопку зчитати інформацію
+    // з інпуту та перевірити вік чи меньше він ніж 18, та повідомити про це користувача
+    const form = document.createElement('form');
+    form.id = 'f1';
+    const input = document.createElement('input');
+    input.type = "number";
+    input.name = "age";
+    const btn = document.createElement("button");
+    btn.innerText = "Перевірити";
+    input.placeholder = "Ваш вік";
+    input.min = 0;
+    input.required = true;
+    document.body.appendChild(form);
+    form.append(input, btn);
+    let f1 = document.forms.f1;
+    let p = document.createElement("p");
+    form.append(p);
+    f1.onsubmit = function (e) {
+        e.preventDefault();
+        if (f1.age.value < 18) {
+            p.innerText = "Вік менше 18"
+        } else {
+            p.innerText = "Є 18"
+        }
+    }
+</script>
+</body>
+</html>

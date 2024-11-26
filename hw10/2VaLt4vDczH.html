@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="div">
+
+</div>
+<button id="btn">скинути</button>
+<script>
+    // #2VaLt4vDczH
+    // є сторінка, на якій є блок, я кому знаходиьтся цифра. написати код, який при кожному перезавантажені сторінки буде додавати до неї +1
+    let div = document.getElementById("div");
+    if (localStorage.getItem("loads")) {
+        div.innerText = localStorage.getItem("loads")
+    }
+    else {
+        localStorage.setItem("loads", "0");
+        div.innerText = 0;
+    }
+
+
+    document.onreadystatechange = function () {
+        {
+            if (document.readyState === "complete") {
+                let loads = parseInt(localStorage.getItem("loads")) + 1;
+                localStorage.setItem("loads", loads);
+              div.innerText = localStorage.getItem("loads")// якщо цей рядок прибрати, скинути до 0, то число на сторінці буде на 1 менше ніж в локал сторедж, чому?
+            }
+
+        }
+    }
+    let btn = document.getElementById("btn");
+
+    btn.onclick = function () {
+        localStorage.setItem("loads", "0");
+        div.innerText = localStorage.getItem("loads")
+    }
+
+</script>
+</body>
+</html>

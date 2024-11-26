@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  // #RbQGnH5DuC
+  // В localStorage зберігаються масиви. Вам потрібно зробити функцію, які дістає потрібний
+  // вам масив з localStorage та додає в нього об'єкт
+  // сигнатура функції -
+  // addToLocalStorage(arrayName:string,objToAdd:any{}):void
+
+function  addToLocalStorage(arrayName , objToAdd ){
+  let arr = JSON.parse(localStorage.getItem(arrayName)) || [];
+
+  arr.push(objToAdd);
+  localStorage.setItem(arrayName, JSON.stringify( arr));
+
+}
+
+addToLocalStorage("try", {name:"jkj", age:13} );
+  addToLocalStorage("try", {name:"jkwsdfgbnj", age:13} );
+
+
+</script>
+</body>
+</html>

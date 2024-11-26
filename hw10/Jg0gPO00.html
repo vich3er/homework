@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input  id="kg" type="number" min="0" placeholder="Введіть кг">
+ <p>У фунтах: <span id="f"></span></p>
+<script>
+  // #Jg0gPO00
+  // створити конвертор ваги з кг в фунти. данні заповнюються через інпут.
+  //         При введенні даних обрахунок стається миттєво, без натискань додаткових кнопок
+  // Фунти=Кілограми×2.20462
+  inp = document.getElementById('kg');
+  span = document.getElementById("f")
+  inp.oninput = function (){
+    span.innerText = inp.value*2.20462;
+  }
+</script>
+</body>
+</html>
