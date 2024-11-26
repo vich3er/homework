@@ -14,8 +14,13 @@
 //         При натисканні next виводяться наступні 10 об'єктів
 // При натисканні prev виводяться попередні 10 об'єкт
 
-let makeTen = function (){
-
+let makeTen = function (from) {
+    let i = from;
+    for (i; i < from+10; i++) {
+        let li = document.createElement('li');
+        li.innerText = locations[i].type + " " + locations[i].title;
+        ul.append(li);
+    }
 }
 
 
@@ -711,9 +716,26 @@ let locations = [
   }
 ]; // title type
 let ul = document.getElementById("ul");
-window.onload = {
-
+let nextOrPr = 0;
+window.onload = function (){
+    makeTen(0);
 }
+let next = document.getElementById("next");
+let prev = document.getElementById("prev");
+next.onclick = function (){
+    ul.innerText = "";
+    nextOrPr+=10;
+    makeTen(nextOrPr);
+}
+
+prev.onclick = function (){
+    ul.innerText = "";
+    nextOrPr-=10;
+    if (nextOrPr <=10) makeTen(0);
+    else
+    makeTen(nextOrPr);
+}
+
 </script>
 </body>
 </html>
