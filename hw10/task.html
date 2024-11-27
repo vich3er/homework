@@ -27,7 +27,7 @@
             if (document.readyState === "complete") {
                 let loads = parseInt(localStorage.getItem("loads")) + 1;
                 localStorage.setItem("loads", loads);
-              div.innerText = localStorage.getItem("loads")// якщо цей рядок прибрати, скинути до 0, то число на сторінці буде на 1 менше ніж в локал сторедж, чому?
+              div.innerText = localStorage.getItem("loads")// якщо цей рядок прибрати, скинути до 0, перезавантажити кілька разів, то число на сторінці буде на 1 менше ніж в локал сторедж, чому?
             }
 
         }
