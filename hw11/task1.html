@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  // #HmvAfRQM
+  // - взяти https://dummyjson.com/docs/carts та вивести інформацію про всі корзини. Відобразити всі поля кожної корзини.
+  fetch('https://dummyjson.com/carts?limit=0')
+      .then(res => res.json())
+      .then( ({carts})=>{
+          console.log(carts);
+          for (cart of carts){
+              let p = document.createElement('p');
+              let arr = (arr)=>{
+                  let arrStr = '';
+                  for (el of arr){
+                     for (key in el)
+                     arrStr+=  key + " " + el[key];
+                    arrStr+='\n' ;
+                  }
+                  return arrStr;
+              }
+              p.innerText = `${cart.id} products:\n ${arr(cart.products)} total: ${cart.total}`;
+              document.body.appendChild(p);
+          }
+          }
+
+
+
+      );
+
+</script>
+</body>
+</html>

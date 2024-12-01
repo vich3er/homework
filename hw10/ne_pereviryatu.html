@@ -17,6 +17,7 @@
 let makeTen = function (from) {
     let i = from;
     for (i; i < from+10; i++) {
+        if (i>locations.length) break;
         let li = document.createElement('li');
         li.innerText = locations[i].type + " " + locations[i].title;
         ul.append(li);

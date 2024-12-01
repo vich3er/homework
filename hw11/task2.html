@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            background-color: gold;
+            margin: 5px;
+        }
+        img{
+            width: 30%;
+        }
+    </style>
+</head>
+<body>
+<script>
+
+    let showArr = (arr) => {
+        str = '';
+        let k =1;
+        for (el of arr) {
+            str +=k+ ". " + el + " ";
+            k++;
+        }
+        return str;
+    }
+
+
+    fetch('https://dummyjson.com/recipes?limit=0')
+        .then(res => res.json())
+        .then(({recipes}) => {
+                for (rec of recipes) {
+                    let div = document.createElement('div');
+                    for (key in rec) {
+                        p = document.createElement('p');
+                        if (typeof rec[key] !== "object" && key!='image' ) {
+                            p.innerText += `${key} ${rec[key]}`
+                            console.log(key);
+                        }
+                        else if ( key=='image')
+                        {
+                            let img = document.createElement('img');
+                            img.src = `${rec[key]}`;
+                            div.appendChild(img)
+
+                        }
+                        else {
+                            p.innerText = `${key}: ${showArr(rec[key])}`
+                        }
+                        div.appendChild(p);
+                    }
+                    document.body.appendChild(div);
+                }
+
+
+            }
+        );
+</script>
+</body>
+</html>
