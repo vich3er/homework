@@ -4,34 +4,69 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+<style>
+    .cart {
+        background-color: beige;
+        margin: 10px;
+    }
+
+    .product {
+        margin: 5px;
+        background-color: #ef3636;
+    }
+</style>
 <body>
 <script>
-  // #HmvAfRQM
-  // - взяти https://dummyjson.com/docs/carts та вивести інформацію про всі корзини. Відобразити всі поля кожної корзини.
-  fetch('https://dummyjson.com/carts?limit=0')
-      .then(res => res.json())
-      .then( ({carts})=>{
-          console.log(carts);
-          for (cart of carts){
-              let p = document.createElement('p');
-              let arr = (arr)=>{
-                  let arrStr = '';
-                  for (el of arr){
-                     for (key in el)
-                     arrStr+=  key + " " + el[key];
-                    arrStr+='\n' ;
-                  }
-                  return arrStr;
-              }
-              p.innerText = `${cart.id} products:\n ${arr(cart.products)} total: ${cart.total}`;
-              document.body.appendChild(p);
-          }
-          }
 
 
+    let url = new URL('https://dummyjson.com/carts');
+    url.searchParams.set('limit', "1");
+    fetch(url)
+        .then(res => res.json())
+        .then(
+            ({carts}) => {
+                for (cart of carts) {
+                  //  console.log(cart);
+                    let cartDiv = document.createElement('div');
+                    cartDiv.classList.add("cart");
+                    document.body.appendChild(cartDiv);
+                    for (key in cart) {
+                        if (!Array.isArray(cart[key])) {
+                            let p = document.createElement('p');
+                            p.innerText = `${key}: ${cart[key]}`
+                            cartDiv.appendChild(p);
+                        } else {
+                       //  let ordersDiv =    document.createElement('div');
+                            let products = cart[key];
+                          //  console.log(products);
+                            for(pr of products){
+                                let productDiv = document.createElement('div')
+                                cartDiv.appendChild(productDiv);
+                                productDiv.classList.add('product');
+                                console.log(pr);
+                                for(k in pr){
+                                    if (k!='thumbnail')
+                                    {
+                                        let p = document.createElement('p');
+                                        productDiv.appendChild(p);
+                                        p.innerText = `${k} ${pr[k]}`
+                                    }
+                                    else
+                                    {
+                                        let img = document.createElement("img");
+                                        img.src = `${pr.thumbnail}`;
+                                        productDiv.appendChild(img);
+                                    }
+                                }
+                            }
 
-      );
 
+                        }
+                    }
+
+                }
+            }
+        );
 </script>
 </body>
 </html>
